@@ -13,6 +13,7 @@
 		2F184891201BC683009694AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F184890201BC683009694AC /* Assets.xcassets */; };
 		2F184894201BC683009694AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F184892201BC683009694AC /* LaunchScreen.storyboard */; };
 		2F1848A6201BDE5B009694AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F1848A5201BDE5B009694AC /* GoogleService-Info.plist */; };
+		2F8DB0592052F70A00D4D3B5 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8DB0582052F70A00D4D3B5 /* InfoVC.swift */; };
 		8EE121EAA34A7299A5C88E92 /* Pods_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4706751CF1ADA359CBE8242 /* Pods_Social.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		2F184895201BC683009694AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F1848A5201BDE5B009694AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F1848A7201BE3C6009694AC /* Social.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Social.entitlements; sourceTree = "<group>"; };
+		2F8DB0582052F70A00D4D3B5 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		747981877DEC695D50CE8E49 /* Pods-Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Social/Pods-Social.debug.xcconfig"; sourceTree = "<group>"; };
 		C4706751CF1ADA359CBE8242 /* Pods_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28F84FEC8A217AAE586B4A4 /* Pods-Social.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social.release.xcconfig"; path = "Pods/Target Support Files/Pods-Social/Pods-Social.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				2F18488B201BC683009694AC /* LoginVC.swift */,
 				2F184889201BC683009694AC /* AppDelegate.swift */,
+				2F8DB0582052F70A00D4D3B5 /* InfoVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F18488C201BC683009694AC /* LoginVC.swift in Sources */,
+				2F8DB0592052F70A00D4D3B5 /* InfoVC.swift in Sources */,
 				2F18488A201BC683009694AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

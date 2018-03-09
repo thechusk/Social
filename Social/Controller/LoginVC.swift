@@ -47,11 +47,13 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
                     }
                     else {
                         print ("signed in")
+                                       self.performSegue(withIdentifier: "toInfo", sender: self)
                     }
                 })
             }
             else{
                 print ("Registered with email")
+                               self.performSegue(withIdentifier: "toInfo", sender: self)
             }
         }
 
@@ -98,7 +100,7 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
                 
                 print("registration success")
                 
-//                self.performSegue(withIdentifier: "goToChat", sender: self)
+                self.performSegue(withIdentifier: "toInfo", sender: self)
             }
         }
     }
