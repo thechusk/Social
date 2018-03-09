@@ -12,25 +12,18 @@ import FirebaseDatabase
 import FirebaseStorage
 import SwiftKeychainWrapper
 
-class InfoVC: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class InfoVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var userImagePicker: UIImageView!
-    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var plusPhoto: UIButton!
     
-    var imagePicker : UIImagePickerController?
-    var imageSelected = false
-    var userId : String?
-    var username : String?
-    
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
 
-        imagePicker?.delegate = self
-        imagePicker = UIImagePickerController()
-        imagePicker?.allowsEditing = true
 
     }
 
@@ -46,10 +39,10 @@ class InfoVC: UIViewController, UIImagePickerControllerDelegate,UINavigationCont
     }
 
     @IBAction func selectedImagePicker(_ sender: Any) {
-        present(imagePicker!, animated: true, completion: nil)
-        imagePicker.didfin
-        userImagePicker.image = [UIImagePickerControllerOriginalImage] as? UIImage
- 
+imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -57,6 +50,22 @@ class InfoVC: UIViewController, UIImagePickerControllerDelegate,UINavigationCont
 
         
     }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info [UIImagePickerControllerOriginalImage] as? UIImage {
+            
+           userImagePicker.contentMode = .scaleAspectFit
+            userImagePicker.image = pickedImage
+            
+        }
         
+        dismiss(animated: true, completion: nil)
+    }
     
-}
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    }
+
+
+
