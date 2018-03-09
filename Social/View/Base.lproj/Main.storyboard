@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +25,46 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsY-hi-kaf" userLabel="BUTTOM">
                                 <rect key="frame" x="0.0" y="101" width="375" height="711"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OIG-76-INQ">
+                                        <rect key="frame" x="8" y="158" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="med-fK-4Vh">
+                                        <rect key="frame" x="8" y="250" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLF-Na-EmT">
+                                        <rect key="frame" x="102" y="337" width="170" height="37"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="85A-ea-y3h"/>
+                                            <constraint firstAttribute="height" constant="37" id="dz2-r7-JN4"/>
+                                        </constraints>
+                                        <state key="normal" title="Email Sign in/up">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signInUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NPl-Ap-fxH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="med-fK-4Vh" firstAttribute="centerX" secondItem="vLF-Na-EmT" secondAttribute="centerX" id="32a-2D-wNk"/>
+                                    <constraint firstItem="OIG-76-INQ" firstAttribute="trailing" secondItem="tsY-hi-kaf" secondAttribute="trailingMargin" id="Keu-hc-0c4"/>
+                                    <constraint firstItem="OIG-76-INQ" firstAttribute="leading" secondItem="tsY-hi-kaf" secondAttribute="leadingMargin" id="LeD-xJ-lO1"/>
+                                    <constraint firstItem="med-fK-4Vh" firstAttribute="top" secondItem="OIG-76-INQ" secondAttribute="bottom" constant="62" id="TtR-7r-c6e"/>
+                                    <constraint firstItem="OIG-76-INQ" firstAttribute="trailing" secondItem="med-fK-4Vh" secondAttribute="trailing" id="ZIA-eY-As1"/>
+                                    <constraint firstItem="vLF-Na-EmT" firstAttribute="top" secondItem="med-fK-4Vh" secondAttribute="bottom" constant="57" id="qD4-R2-SaJ"/>
+                                    <constraint firstItem="vLF-Na-EmT" firstAttribute="centerY" secondItem="tsY-hi-kaf" secondAttribute="centerY" id="qoe-p7-x1v"/>
+                                    <constraint firstItem="OIG-76-INQ" firstAttribute="leading" secondItem="med-fK-4Vh" secondAttribute="leading" id="vAu-5Z-LLB"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FzX-Rw-1cw" userLabel="STATUS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -49,12 +89,37 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="OIG-76-INQ" id="Fze-Lu-zGI"/>
                         <outlet property="loginButton" destination="jE4-Bq-r2Y" id="Z4l-H8-6KP"/>
+                        <outlet property="passwordTextField" destination="med-fK-4Vh" id="9oX-1I-qIi"/>
+                        <segue destination="GxM-NC-KRc" kind="show" identifier="toInfo" id="Mr6-Do-7K4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135.19999999999999" y="132.26600985221674"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="55i-2Q-vsy">
+            <objects>
+                <viewController id="GxM-NC-KRc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s3w-mW-q9k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QbZ-Uz-RWd" userLabel="BUTTOM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="sLU-je-6mF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NZC-R9-4WB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1125.5999999999999" y="131.52709359605913"/>
         </scene>
     </scenes>
 </document>

@@ -16,8 +16,10 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
  
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     
-
-
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.delegate = self
@@ -33,18 +35,33 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
     
         //MARK: - Firebase auth method with email
     
+    @IBAction func signInUpButton(_ sender: Any) {
+    
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error != nil{
+                print(error!)
+                Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: { (user, error) in
+                    if error != nil {
+                        print(error!)
+                
+                    }
+                    else {
+                        print ("signed in")
+                    }
+                })
+            }
+            else{
+                print ("Registered with email")
+            }
+        }
+
+        
+        
+    }
     
 
         
-//        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-//            if error != nil{
-//                print(error!)
-//            }
-//            else{
-//                print ("Registered with email")
-//            }
-//        }
-        
+    
    
 
             //MARK: - Firebase auth method with Facebook
